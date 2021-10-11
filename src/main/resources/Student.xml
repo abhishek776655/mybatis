@@ -28,16 +28,23 @@
 	</select>
 
 	<select id="getById" parameterType="int" resultMap="result">
-		SELECT * FROM STUDENT WHERE ID = #{id};
+		SELECT * FROM
+		STUDENT WHERE ID = #{id};
 	</select>
 
 	<update id="update" parameterType="mybatis.Student">
-		UPDATE STUDENT SET NAME = #{name},
+		UPDATE STUDENT SET NAME =
+		#{name},
 		BRANCH = #{branch},
 		PERCENTAGE = #{percentage},
-		PHONE = #{phone},
+		PHONE =
+		#{phone},
 		EMAIL = #{email}
 		WHERE ID = #{id};
 	</update>
+
+	<delete id="deleteById" parameterType="int">
+		DELETE from STUDENT WHERE ID = #{id};
+	</delete>
 
 </mapper>

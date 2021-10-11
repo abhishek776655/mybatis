@@ -18,12 +18,15 @@ public class MyBatisInsert {
 		SqlSession session = sqlSessionFactory.openSession();
 
 		// Create a new student object
-		Student student = new Student("Mohammad", "It", 80, 984803322, "Mohammad@gmail.com");
-		updateStudent(session,1);
+		Student student = new Student("Abhishek", "It", 80, 984803322, "Abhishek@gmail.com");
+		//updateStudent(session,1);
+		//insertStudent(student,session);
+		//deleteStudent(session,2);
 		session.commit();
 		session.close();
 
 	}
+	
 	public static void insertStudent(Student student, SqlSession session) {
 		   session.insert("mybatis.Student.insert", student);
 		   System.out.println("record inserted successfully");
@@ -66,6 +69,10 @@ public class MyBatisInsert {
 	      
 	      session.update("mybatis.Student.update",student);
 	      System.out.println("Record updated successfully");  
+	}
+	
+	public static void deleteStudent(SqlSession session, int id) {
+		session.delete("mybatis.Student.deleteById", id);  		
 	}
 
 }
